@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="Hal-removebg-preview (2).png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hal Power Conversion - Contact Us</title>
+    <link rel="stylesheet" href="contactstyles.css">
+</head>
+<body>
+    <style>
+        * {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f4f4f4;
+}
+
+.nav {
+    height: 85px;
+    width: 100%;
+    background-color: #4d4d4d;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-header {
+    display: inline;
+}
+
+.nav-title {
+    display: inline-block;
+    padding: 10px;
+}
+
+.logo {
+    width: 130px;
+}
+
+.nav-btn {
+    display: none;
+}
+
+.nav-links {
+    display: inline;
+    float: right;
+    font-size: 18px;
+}
+
+.nav-links > a {
+    display: inline-block;
+    padding: 20px;
+    text-decoration: none;
+    color: #efefef;
+}
+
+.nav-links > a:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+#nav-check {
+    display: none;
+}
+
+@media (max-width: 600px) {
+    .nav-btn {
+        display: inline-block;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    .nav-btn > label {
+        width: 70px;
+        height: 70px;
+        padding: 20px;
+    }
+
+    .nav-btn > label > span {
+        display: block;
+        width: 30px;
+        height: 3px;
+        margin-bottom: 6px;
+        background-color: #eee;
+    }
+
+    .nav-links {
+        position: absolute;
+        width: 100%;
+        background-color: #333;
+        height: 0;
+        transition: height 0.3s ease-in;
+        overflow-y: hidden;
+        top: 85px;
+        left: 0;
+    }
+
+    .nav-links > a {
+        display: block;
+        width: 100%;
+    }
+
+    #nav-check:checked ~ .nav-links {
+        height: calc(100vh - 85px);
+    }
+}
+
+.cart-page {
+    max-width: 1200px;
+    margin: 120px auto 50px;
+    padding: 0 20px;
+}
+
+.cart-page h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.cart-container {
+    display: flex;
+    gap: 30px;
+}
+
+.cart-items {
+    flex: 2;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+.cart-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    margin-right: 15px;
+}
+
+.item-details {
+    flex: 1;
+}
+
+.item-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.item-price {
+    color: #888;
+}
+
+.item-quantity {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.quantity-btn {
+    background-color: #f0f0f0;
+    border: none;
+    width: 25px;
+    height: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.quantity-btn:hover {
+    background-color: #e0e0e0;
+}
+
+.quantity-input {
+    width: 40px;
+    text-align: center;
+    margin: 0 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.remove-item {
+    background-color: #ff4747;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.remove-item:hover {
+    background-color: #d93c3c;
+}
+
+.cart-summary {
+    flex: 1;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    align-self: flex-start;
+}
+
+.cart-summary h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.summary-item.total {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #eee;
+}
+
+.checkout-btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+}
+
+.checkout-btn:hover {
+    background-color: #45a049;
+}
+
+@media (max-width: 768px) {
+    .cart-container {
+        flex-direction: column;
+    }
+
+    .cart-summary {
+        width: 100%;
+    }
+}
+
+.footer {
+    background-color: #4d4d4d;
+    color: #fff;
+    padding: 40px 0 20px;
+    margin-top: 50px;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-section {
+    flex: 1;
+    margin-bottom: 20px;
+    min-width: 200px;
+}
+
+.footer-section h3 {
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-section a:hover {
+    text-decoration: underline;
+}
+
+.social-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.social-icons a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-color: #333;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+}
+
+.social-icons a:hover {
+    background-color: #555;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #555;
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+    }
+
+    .footer-section {
+        margin-bottom: 30px;
+    }
+}
+
+.container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin-top: 150px;
+}
+
+/* Contact Form Styling */
+.contact-form {
+    background: #fff;
+    padding: 40px;
+    width: 350px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    transform: translateY(-50px);
+    opacity: 0;
+    animation: fadeIn 1.2s forwards;
+}
+
+/* Input Box Styling */
+.input-box {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.input-box input,
+.input-box textarea {
+    width: 100%;
+    padding: 10px 0;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #333;
+    outline: none;
+    color: #333;
+    font-size: 16px;
+    transition: border-color 0.3s;
+    resize: none;
+}
+
+.input-box label {
+    position: absolute;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #666;
+    pointer-events: none;
+    transition: 0.3s;
+}
+
+.input-box input:focus + label,
+.input-box input:valid + label,
+.input-box textarea:focus + label,
+.input-box textarea:valid + label {
+    transform: translateY(-24px);
+    font-size: 12px;
+    color: #ff6666;
+}
+
+.submit-btn {
+    width: 100%;
+    background: #ff6666;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.submit-btn:hover {
+    background: #e55b5b;
+}
+
+/* Map Container Styling */
+.map-container {
+    background: #fff;
+    padding: 20px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    animation: slideIn 1.2s forwards;
+    opacity: 0;
+    transform: translateX(-50px);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+    </style>
+    <nav class="nav">
+        <input type="checkbox" id="nav-check">
+        <div class="nav-header">
+            <div class="nav-title">
+                <img src="Hal-removebg-preview (2).png" alt="Company Logo" class="logo">
+            </div>
+        </div>
+        <div class="nav-btn">
+            <label for="nav-check">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="product.html">Products</a>            
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="cart.html">Cart</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Contact Form -->
+        <div class="contact-form">
+            <h2>Contact Us</h2>
+            <form>
+                <div class="input-box">
+                    <input type="text" required>
+                    <label>Your Name</label>
+                </div>
+                <div class="input-box">
+                    <input type="email" required>
+                    <label>Email Address</label>
+                </div>
+                <div class="input-box">
+                    <input type="text" required>
+                    <label>Subject</label>
+                </div>
+                <div class="input-box">
+                    <textarea required></textarea>
+                    <label>Your Message</label>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+
+        <!-- Embedded Google Map -->
+        <div class="map-container">
+            <h3>Our Location</h3>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3744.881353705111!2d80.2212416!3d13.062412300000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5267f49e8e1173%3A0x40379c791918f720!2sHal%20Power%20Conversion!5e1!3m2!1sen!2sin!4v1731949424575!5m2!1sen!2sin"
+                width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
+
+    
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>We provide high-quality power solutions for your home and business needs.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="product.html">Products</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: halpowerconversion@gmail.com</p>
+                <p>Phone: +91 93420 50447</p>
+                <p>Address: 13/7, Kalaimagal Street Choolaimedu Chennai - 600 094</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+                    <a href="#" aria-label="Twitter"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+                    <a href="#" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Power Solutions. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="about.js"></script>
+    <script src="contact.js"></script>
+</body>
+</html>
